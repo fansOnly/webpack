@@ -1,15 +1,33 @@
 const merge = require('webpack-merge')
 const webpack = require('webpack')
-const common = require('./webpack.common.js')
+const config = require('./webpack.config.js')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-module.exports = merge(common, {
+module.exports = merge(config, {
 	mode: 'production',
 	output: {
-		chunkFilename: '[name].[contenthash].js',
+		filename: "'js/[name].[contenthash:8].js'",
+		chunkFilename: 'js/[name].[chunkhash:8].chunk.js',
 		pathinfo: false,
 	},
 	// devtool: 'source-map',
+	module: {
+		rules: [
+			{
+				test: /\.(sa|sc|c)ss$/,
+				use: [
+					{
+						loader: MiniCssExtractPlugin.loader,
+					},
+					'css-loader',
+					'postcss-loader',
+					'sass-loader',
+				]
+			},
+		]
+	},
 	optimization: {
+		runtimeChunk: 'single',
 		splitChunks: {
 			cacheGroups: {
 				vendor: {
@@ -19,9 +37,12 @@ module.exports = merge(common, {
 				}
 			}
 		},
-		runtimeChunk: 'single'
 	},
 	plugins: [
 		new webpack.HashedModuleIdsPlugin(),
+		new MiniCssExtractPlugin({
+			filename: 'css/[name].css',
+			chunkFilename: 'css/[id].[chunkhash:8].css',
+		}),
 	]
 })
