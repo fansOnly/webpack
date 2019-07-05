@@ -1,22 +1,24 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Link, Redirect, withRouter, NavLink } from "react-router-dom"
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
+
+import Login from 'pages/login/index'
+import Admin from 'pages/admin/index'
+import NoFoundPage from 'pages/exception/404'
+
+import renderRoutes from './router/renderRoutes'
+import routes from './router/router'
 
 import './app.css'
 
 export default class App extends Component {
 
-    componentDidMount() {
-        window.scrollTo(0, 0);
-      }
-
-    render () {
-        return (
-            <Router>
-                <NavLink to='/nav1' activeClassName='current'>React</NavLink>
-                <div style={{height: '3000px'}}></div>
-                <div onClick={() => window.scrollTo(0, 0)}>this is bottom....</div>
-                
-            </Router>
-        );
-    }
-};
+	render () {
+		return (
+			<Router>
+				{
+					renderRoutes(routes)
+				}
+			</Router>
+		)
+	}
+}
