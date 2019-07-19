@@ -2,12 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { loginApi } from 'src/service/user'
-
-@connect(state => ({
-	user: state.user,
-	authed: state.authed
-}))
+import { loginApi } from '@/service/user'
 
 class Login extends Component {
 
@@ -16,10 +11,7 @@ class Login extends Component {
 		password: ''
 	}
 
-	componentDidMount () {
-		loginApi().then(res => {
-			console.log('test', res);
-		})
+	componentWillMount () {
 	}
 
 	inputTyping (e) {
@@ -29,19 +21,17 @@ class Login extends Component {
 	}
 
 	handleSubmit (e) {
-		const { username, password } = this.state;
-		if (username == 'test' && password == '123') {
-			console.log('success');
-			loginApi().then(res => {
-				console.log('login', res);
-				const { from } = this.props.location.state || { from: { pathname: '/' } }
-				localStorage.setItem('user', { username })
-				this.props.history.push(from.pathname)
-			})
-		} else {
-			console.log('帐号密码错误.');
-		}
 		e.preventDefault();
+		const { username, password } = this.state;
+		const { dispatch } = this.props;
+		loginApi(dispatch, {username, password}).then(res => {
+			if (res) {
+				// console.log(this.props)
+				const { from } = this.props.location.state || { from: { pathname: '/' } }
+				this.props.history.push(from.pathname)
+			}
+		})
+
 	}
 
 	render () {
@@ -58,6 +48,7 @@ class Login extends Component {
 						<div className='label'>密码</div>
 						<input type="text" name='password' id='password' value={password} onChange={(e) => this.inputTyping(e)} />
 					</div>
+					<div>username: test, password: 123</div>
 					<button type='submit'>登录</button>
 				</form>
 			</Router>
@@ -65,4 +56,4 @@ class Login extends Component {
 	}
 }
 
-export default Login;
+export default connect()(Login);

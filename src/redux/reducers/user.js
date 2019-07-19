@@ -1,9 +1,7 @@
-import request from 'src/utils/request'
-
 // Actions
 export const types = {
-	SIGNIN : 'login',
-	UPDATE: 'setuser',
+	SIGNIN : 'signin',
+	UPDATE: 'getuser',
 	SINGNOUT: 'signout'
 }
 
@@ -15,16 +13,19 @@ const initialState = {
 export default function reducer (state = initialState, action = {}) {
 	switch (action.type) {
 		case types.SIGNIN:
-			return Object.assign(state, {
-				'user': action.data,
-				'authed': true
-			});
+			return {
+				...state,
+				user: action.data,
+				authed: true
+			}
 		case types.SINGNOUT:
-			return Object.assign(state, {
-				'user': {},
-				'authed': false
-			});
-		default: return state;
+			return {
+				...state,
+				user: {},
+				authed: false
+			}
+		default:
+			return state;
 	}
 }
 
@@ -33,10 +34,9 @@ export default function reducer (state = initialState, action = {}) {
 // export function singnin() {
 // 	return { type: types.SIGNIN };
 // }
-export const actions = {
-	singnin: function () {
-		return { type: types.SIGNIN }
-		// return dispatch => request('getconfigbase.php').then(v => dispatch(singnin(v)))
+export const userActions = {
+	singnin: function (data) {
+		return { type: types.SIGNIN, data }
 	},
 	signout: function () {
 		return { type: types.SINGNOUT }

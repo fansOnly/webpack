@@ -5,8 +5,8 @@ export default {
 	 * @return {String}
 	 */
 	getFilenameExt(file) {
-	    const types = file.name.split('.')
-	    return types[types.length - 1]
+		const types = file.name.split('.')
+		return types[types.length - 1]
 	},
 
 	/**
@@ -16,7 +16,7 @@ export default {
 	 * @return {String}
 	 */
 	rand(min, max) {
-	    return Math.floor(Math.random() * (max - min + 1) + min)
+		return Math.floor(Math.random() * (max - min + 1) + min)
 	},
 
 	/**
@@ -25,16 +25,16 @@ export default {
 	 * @return {String}
 	 */
 	randString(size) {
-	    let result  = ''
-	    let allChar = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+		let result  = ''
+		let allChar = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-	    size = size || 1
+		size = size || 1
 
-	    while (size--) {
-	        result += allChar.charAt(this.rand(0, allChar.length - 1))
-	    }
+		while (size--) {
+			result += allChar.charAt(this.rand(0, allChar.length - 1))
+		}
 
-	    return result
+		return result
 	},
 
 	/**
@@ -198,7 +198,7 @@ export default {
 	 */
 	isNull(value) {
 		return value === null
-    },
+	},
 
 	/**
 	 * 判断某个元素是否为有限数
@@ -206,26 +206,26 @@ export default {
 	 * @return {Boolean}
 	 */
 	isFinite(value) {
-      return typeof value == 'number' && isFinite(value)
-    },
+	return typeof value == 'number' && isFinite(value)
+	},
 
-    /**
-     * 判断某个元素是否为自然数
-     * @param  {Number}  value
-     * @return {Boolean}
-     */
-    isNaN(value) {
-      return this.isNumber(value) && value != +value
-    },
+	/**
+	 * 判断某个元素是否为自然数
+	 * @param  {Number}  value
+	 * @return {Boolean}
+	 */
+	isNaN(value) {
+	return this.isNumber(value) && value != +value
+	},
 
-    /**
-     * 判断某个元素是否为错误类型
-     * @param  {Object}  value
-     * @return {Boolean}
-     */
-    isError(value) {
-    	return this.type(value) === '[object Error]'
-    },
+	/**
+	 * 判断某个元素是否为错误类型
+	 * @param  {Object}  value
+	 * @return {Boolean}
+	 */
+	isError(value) {
+		return this.type(value) === '[object Error]'
+	},
 
 	/**
 	 * 删除字符串左右两端的空格
@@ -318,9 +318,9 @@ export default {
 	},
 
 	/**
-	 * 扩展对象
-	 * @return {Object}
-	 */
+		* 扩展对象
+		* @return {Object}
+		*/
 	extend() {
 		let src, copyIsArray, copy, name, options, clone,
 			target = arguments[0] || {},
@@ -371,10 +371,10 @@ export default {
 	},
 
 	/**
-	 * 判断传入的参数是否为纯粹的对象，即直接量{}或new Object()创建的对象
-	 * @param  {[type]}  obj [description]
-	 * @return {Boolean}     [description]
-	 */
+		* 判断传入的参数是否为纯粹的对象，即直接量{}或new Object()创建的对象
+		* @param  {[type]}  obj [description]
+		* @return {Boolean}     [description]
+		*/
 	isPlainObject(obj) {
 		let getProto = Object.getPrototypeOf
 		let class2type = {}
@@ -395,21 +395,21 @@ export default {
 	},
 
 	/**
-	 * 判断对象是否为空
-	 * @param  {Object}  obj
-	 * @return {Boolean}
-	 */
+		* 判断对象是否为空
+		* @param  {Object}  obj
+		* @return {Boolean}
+		*/
 	isEmptyObject(obj) {
 		for (let i in obj)
-            return !1
-        return !0
+			return !1
+		return !0
 	},
 
 	/**
-	 * 判断对象的类型
-	 * @param  {Object} obj
-	 * @return {String}
-	 */
+		* 判断对象的类型
+		* @param  {Object} obj
+		* @return {String}
+		*/
 	type(obj) {
 		const toString = Object.prototype.toString
 		if ( obj == null ) {
@@ -419,96 +419,96 @@ export default {
 	},
 
 	/**
-	 * 合并对象并返回一个新的对象，目标对象自身也会改变
-	 * @param  {Array} args
-	 * @return {Object}
-	 */
+		* 合并对象并返回一个新的对象，目标对象自身也会改变
+		* @param  {Array} args
+		* @return {Object}
+		*/
 	merge(...args) {
 		return Object.assign(...args)
 	},
 
 	/**
-	 * 拷贝对象并返回一个新的对象
-	 * @param  {Object} obj
-	 * @return {Object}
-	 */
+		* 拷贝对象并返回一个新的对象
+		* @param  {Object} obj
+		* @return {Object}
+		*/
 	clone(obj) {
-	    if (typeof obj !== 'object' || !obj) {
-	        return obj
-	    }
-	    let copy = {}
-	    for (let attr in obj) {
-	        if (obj.hasOwnProperty(attr)) {
-	            copy[attr] = obj[attr]
-	        }
-	    }
-	    return copy
+		if (typeof obj !== 'object' || !obj) {
+			return obj
+		}
+		let copy = {}
+		for (let attr in obj) {
+			if (obj.hasOwnProperty(attr)) {
+				copy[attr] = obj[attr]
+			}
+		}
+		return copy
 	},
 
 	/**
-	 * 删除对象上的指定属性并返回一个新的对象
-	 * @param  {Object} obj
-	 * @param  {Array} keys
-	 * @return {[type]}
-	 */
+		* 删除对象上的指定属性并返回一个新的对象
+		* @param  {Object} obj
+		* @param  {Array} keys
+		* @return {[type]}
+		*/
 	omit(obj, keys) {
-	    let o = this.clone(obj)
-	    keys.forEach(key => {
-	        delete o[key]
-	    })
-	    return o
+		let o = this.clone(obj)
+		keys.forEach(key => {
+			delete o[key]
+		})
+		return o
 	},
 
 	/**
-	 * 返回一个新数组，数组中的元素为指定属性的值
-	 * @param  {Array} arr
-	 * @param  {String} key
-	 * @return {Array}
-	 */
+		* 返回一个新数组，数组中的元素为指定属性的值
+		* @param  {Array} arr
+		* @param  {String} key
+		* @return {Array}
+		*/
 	pluck(arr, key) {
-	    if (typeof arr !== 'object' || arr.length === 0) {
-	        return []
-	    }
-	    if (!key) {
-	        return arr
-	    }
-	    return arr.map(a => a[key])
+		if (typeof arr !== 'object' || arr.length === 0) {
+			return []
+		}
+		if (!key) {
+			return arr
+		}
+		return arr.map(a => a[key])
 	},
 
 	/**
-	 * 返回一个字符串，数组中的元素为字符串的值
-	 * @param  {Array} arr
-	 * @param  {String} key
-	 * @param  {String} i  //分隔符
-	 * @return {String} String
-	 */
+		* 返回一个字符串，数组中的元素为字符串的值
+		* @param  {Array} arr
+		* @param  {String} key
+		* @param  {String} i  //分隔符
+		* @return {String} String
+		*/
 	pluckString(arr, key, i) {
-	    if (typeof arr !== 'object' || arr.length === 0) {
-	        return []
-	    }
-	    if (!key) {
-	        return arr
-	    }
-	    let str = arr.map(a => a[key])
-	    return str.join(i)
+		if (typeof arr !== 'object' || arr.length === 0) {
+			return []
+		}
+		if (!key) {
+			return arr
+		}
+		let str = arr.map(a => a[key])
+		return str.join(i)
 	},
 
 	/**
-	 * 返回序列化的值
-	 * @param  {String} value
-	 * @return {String}
-	 */
+		* 返回序列化的值
+		* @param  {String} value
+		* @return {String}
+		*/
 	serializeValue(value) {
 		if (this.isObject(value)) return this.isDate(value) ? value.toISOString() : this.toJson(value)
 		return value
 	},
 
 	/**
-	 * 编码URI
-	 * @param  {String} value
-	 * @param  {String} pctEncodeSpaces
-	 * @return {String}
-	 */
+		* 编码URI
+		* @param  {String} value
+		* @param  {String} pctEncodeSpaces
+		* @return {String}
+		*/
 	encodeUriQuery(value, pctEncodeSpaces) {
 		return encodeURIComponent(value)
 		.replace(/%40/gi, '@')
@@ -520,10 +520,10 @@ export default {
 	},
 
 	/**
-	 * 对象序列化
-	 * @param  {Object} obj
-	 * @return {String}
-	 */
+		* 对象序列化
+		* @param  {Object} obj
+		* @return {String}
+		*/
 	paramSerializer(obj) {
 		if (!obj) return ''
 		let that = this
@@ -540,138 +540,138 @@ export default {
 			}
 		}
 		return parts.join('&')
-    },
+	},
 
-    /**
-	 * 拼接URL
-	 * @param  {String} obj
-	 * @param  {Object} obj
-	 * @return {String}
-	 */
-    buildUrl(url, obj) {
-    	const serializedParams = this.paramSerializer(obj)
+	/**
+		* 拼接URL
+		* @param  {String} obj
+		* @param  {Object} obj
+		* @return {String}
+		*/
+	buildUrl(url, obj) {
+		const serializedParams = this.paramSerializer(obj)
 		if (serializedParams.length > 0) {
 			url += ((url.indexOf('?') == -1) ? '?' : '&') + serializedParams
 		}
 		return url
-    },
+	},
 
 
-    /**
-	 * 判断两个字符串是否一样
-	 * @param  {String} str / {Object} obj
-	 * @param  {String} str / {Object} obj
-	 * @return {Boolean}
-	 */
+	/**
+		* 判断两个字符串是否一样
+		* @param  {String} str / {Object} obj
+		* @param  {String} str / {Object} obj
+		* @return {Boolean}
+		*/
 	isEqual(value1,value2) {
 		return  !this.isNull(value1) && !this.isNull(value2) && typeof value1 === typeof value2 && value1 === value2
 	},
 
 	/**
-	 * 判断是否为手机号
-	 * @param  {Number}
-	 * @return {Boolean}
-	 */
+		* 判断是否为手机号
+		* @param  {Number}
+		* @return {Boolean}
+		*/
 	isPhone(value) {
 		return this.isNumber(value) && (/^[1][3578][0-9]{9}$/).test(value)
 	},
 
 	/**
-	 * 生成数字组合
-	 * @param  {Number} size
-	 * @return {String}
-	 */
+		* 生成数字组合
+		* @param  {Number} size
+		* @return {String}
+		*/
 	randNumber(size) {
-	    let result  = ''
-	    let allChar = '0123456789'
+		let result  = ''
+		let allChar = '0123456789'
 
-	    size = size || 1
-	    while (size--) {
-	        result += allChar.charAt(this.rand(0, allChar.length - 1))
-	    }
-	    return result
+		size = size || 1
+		while (size--) {
+			result += allChar.charAt(this.rand(0, allChar.length - 1))
+		}
+		return result
 	},
 
 	/**
-	 * 生成新数组
-	 * @param  {Array} arr
-	 * @param  {String} obj
-	 * @return {Array} arr
-	 */
+		* 生成新数组
+		* @param  {Array} arr
+		* @param  {String} obj
+		* @return {Array} arr
+		*/
 	pluckArr(arr, obj, field) {
-	    if (null != arr && arr.length > 0) {
-	        var contain = false;
-	        for (var i = 0; i < arr.length; i++) {
-	            if (arr[i][field] == obj[field]) {
-	                contain = true;
-	                arr[i] = obj;
-	                break;
-	            }
-	        }
-	        if (!contain) {
-	            arr.push(obj);
-	        }
-	    } else {
-	        arr = [];
-	        arr.push(obj);
-	    }
-	    return arr;
+		if (null != arr && arr.length > 0) {
+			var contain = false;
+			for (var i = 0; i < arr.length; i++) {
+				if (arr[i][field] == obj[field]) {
+					contain = true;
+					arr[i] = obj;
+					break;
+				}
+			}
+			if (!contain) {
+				arr.push(obj);
+			}
+		} else {
+			arr = [];
+			arr.push(obj);
+		}
+		return arr;
 	},
 
 	/**
-	 * 截取字符串
-	 * @param  {String} str
-	 * @param  {Number} start
-	 * @param  {Number} end
-	 * @return {String}
-	 */
+		* 截取字符串
+		* @param  {String} str
+		* @param  {Number} start
+		* @param  {Number} end
+		* @return {String}
+		*/
 	subStr(str,start,end){
-	    if (typeof str !== 'string') {
-	        return str.toString()
-	    }
-	    return str.substring(start,end)
+		if (typeof str !== 'string') {
+			return str.toString()
+		}
+		return str.substring(start,end)
 	},
 
 	/**
-	 * 格式化时间
-	 * @param  {int/date} time
-	 * @param  {String} str1
-	 * @param  {String} str2
-	 * @return {String}
-	 */
+		* 格式化时间
+		* @param  {int/date} time
+		* @param  {String} str1
+		* @param  {String} str2
+		* @return {String}
+		*/
 	formatTime(time, str1='', str2='') {
 		if (time == '') {
 			return;
 		}
-	    if (typeof time === 'number' || time > 0) {
-	        time = new Date(time*1000);
+		if (typeof time === 'number' || time > 0) {
+			time = new Date(time*1000);
 		}
 		if (!this.isDate(time)) {
 			return time;
 		}
-	    var year = time.getFullYear()
-	    var month = time.getMonth() + 1
-	    var day = time.getDate()
+		var year = time.getFullYear()
+		var month = time.getMonth() + 1
+		var day = time.getDate()
 
-	    var hour = time.getHours()
-	    var minute = time.getMinutes()
+		var hour = time.getHours()
+		var minute = time.getMinutes()
 		var second = time.getSeconds()
 
 		const type1 = str1 && ([year, month, day]).map(function(n) {
-	        n = n.toString()
-	        return n[1] ? n : '0' + n
+			n = n.toString()
+			return n[1] ? n : '0' + n
 		}).join(str1);
 		const type2 = str2 && ([hour, minute, second]).map(function(n) {
-	        n = n.toString()
-	        return n[1] ? n : '0' + n
-	    }).join(str2);
+			n = n.toString()
+			return n[1] ? n : '0' + n
+		}).join(str2);
 
-	    return type1 + (type2 && ' ' + type2);
+		return type1 + (type2 && ' ' + type2);
 	},
 
 	formatTime2(timestamp) {
-	    // if (typeof time !== 'number' || time < 0) {
-	    //     return '格式不对' + time;
+		// if (typeof time !== 'number' || time < 0) {
+		//     return '格式不对' + time;
 		// }
 		// 秒数
 		const seconds = Math.floor(timestamp / 1000);
@@ -682,18 +682,18 @@ export default {
 		// 秒位 equal to => var sec = second % 60;
 		const sec = (seconds - day*24*60*60 - hour * 3600 - min * 60);
 		// 毫秒位，保留2位
-		const micro_sec = Math.floor((timestamp % 1000) / 10);
-		const time = [day, hour, min, sec, micro_sec].map(function(n) {
+		const microSec = Math.floor((timestamp % 1000) / 10);
+		const time = [day, hour, min, sec, microSec].map(function(n) {
 			n = n.toString()
 			return n[1] ? n : '0' + n
 		})
 
-	    return (Number(time[1]) > 0 ? time[1] + '时' : '') + time[2] + '分' + time[3] + '秒';
+		return (Number(time[1]) > 0 ? time[1] + '时' : '') + time[2] + '分' + time[3] + '秒';
 	},
 
 	formatTime3(timestamp) {
-	    // if (typeof time !== 'number' || time < 0) {
-	    //     return '格式不对' + time;
+		// if (typeof time !== 'number' || time < 0) {
+		//     return '格式不对' + time;
 		// }
 		// 秒数
 		const seconds = Math.floor(timestamp / 1000);
@@ -704,18 +704,18 @@ export default {
 		// 秒位 equal to => var sec = second % 60;
 		const sec = (seconds - day*24*60*60 - hour * 3600 - min * 60);
 		// 毫秒位，保留2位
-		const micro_sec = Math.floor((timestamp % 1000) / 10);
-		const time = [day, hour, min, sec, micro_sec].map(function(n) {
+		const microSec = Math.floor((timestamp % 1000) / 10);
+		const time = [day, hour, min, sec, microSec].map(function(n) {
 			n = n.toString()
 			return n[1] ? n : '0' + n
 		})
 
-	    return time[4] + '毫秒';
+		return time[4] + '毫秒';
 	},
 
 	formatTime4(timestamp) {
-	    if (typeof timestamp !== 'number' || timestamp < 0) {
-	        return '格式不对' + timestamp;
+		if (typeof timestamp !== 'number' || timestamp < 0) {
+			return '格式不对' + timestamp;
 		}
 		// 秒数
 		const seconds = Math.floor(timestamp / 1000);
@@ -726,41 +726,41 @@ export default {
 		// 秒位 equal to => var sec = second % 60;
 		const sec = (seconds - day*24*60*60 - hour * 3600 - min * 60);
 		// 毫秒位，保留2位
-		const micro_sec = Math.floor((timestamp % 1000) / 10);
-		const time = [day, hour, min, sec, micro_sec].map(function(n) {
+		const microSec = Math.floor((timestamp % 1000) / 10);
+		const time = [day, hour, min, sec, microSec].map(function(n) {
 			n = n.toString()
 			return n[1] ? n : '0' + n
 		})
 
-	    return (Number(time[1]) > 0 ? time[1] + '时' : '') + (Number(time[2]) > 0 ? time[2] + '分' : '') + (Number(time[3]) > 0 ? time[3] + '秒' : '') + (Number(time[4]) > 0 ? time[4] + '毫秒' : '');
+		return (Number(time[1]) > 0 ? time[1] + '时' : '') + (Number(time[2]) > 0 ? time[2] + '分' : '') + (Number(time[3]) > 0 ? time[3] + '秒' : '') + (Number(time[4]) > 0 ? time[4] + '毫秒' : '');
 	},
 
 	/**
-	 * 格式化坐标
-	 * @param  {String} longitude
-	 * @param  {String} latitude
-	 * @return {String}
-	 */
+		* 格式化坐标
+		* @param  {String} longitude
+		* @param  {String} latitude
+		* @return {String}
+		*/
 	formatLocation(longitude, latitude) {
-	    if (typeof longitude === 'string' && typeof latitude === 'string') {
-	        longitude = parseFloat(longitude)
-	        latitude = parseFloat(latitude)
-	    }
+		if (typeof longitude === 'string' && typeof latitude === 'string') {
+			longitude = parseFloat(longitude)
+			latitude = parseFloat(latitude)
+		}
 
-	    longitude = longitude.toFixed(2)
-	    latitude = latitude.toFixed(2)
+		longitude = longitude.toFixed(2)
+		latitude = latitude.toFixed(2)
 
-	    return {
-	        longitude: longitude.toString().split('.'),
-	        latitude: latitude.toString().split('.')
-	    }
+		return {
+			longitude: longitude.toString().split('.'),
+			latitude: latitude.toString().split('.')
+		}
 	},
 
 	/**
-	 * 对象转换数组
-	 * @param  {Object}
-	 * @return {Array}
-	 */
+		* 对象转换数组
+		* @param  {Object}
+		* @return {Array}
+		*/
 	Obejct2Array (obj) {
 		var arr = []
 		for (let i in obj) {
@@ -770,20 +770,20 @@ export default {
 	},
 
 	/**
-	 * 字符串补零
-	 * @param  {String} str
-	 * @return {String}
-	 */
+		* 字符串补零
+		* @param  {String} str
+		* @return {String}
+		*/
 	fillZero (str) {
 		str = (str).toString();
 		return str[1] ? str : '0' + str
 	},
 
 	/**
-	 * 价格补零
-	 * @param  {String} str
-	 * @return {String}
-	 */
+		* 价格补零
+		* @param  {String} str
+		* @return {String}
+		*/
 	priceFixedZero (str) {
 		if (!this.isNumber(Number(str))) {
 			return;
@@ -792,11 +792,11 @@ export default {
 	},
 
 	/**
-	 * 格式化数字 1234,4568,9
-	 * @param  {Number} num
-	 * @param  {String} str
-	 * @return {String}
-	 */
+		* 格式化数字 1234,4568,9
+		* @param  {Number} num
+		* @param  {String} str
+		* @return {String}
+		*/
 	formateNumber (num, str=',') {
 		if (!this.isNumber(Number(num))) {
 			return;
@@ -810,10 +810,10 @@ export default {
 	},
 
 	/**
-	 * 处理内容图片样式
-	 * @param  {String} content
-	 * @return {String}
-	 */
+		* 处理内容图片样式
+		* @param  {String} content
+		* @return {String}
+		*/
 	formatImageStyle (content, url) {
 		content = content.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/ig,function(match,capture) {
 			return '<img src="'+url+capture+'" style="max-width:100%;height:auto;" alt="" />'
@@ -823,10 +823,10 @@ export default {
 	},
 
 	/**
-	 * 比较版本号
-	 * @param  {String} str1, str2
-	 * @return {Number}
-	 */
+		* 比较版本号
+		* @param  {String} str1, str2
+		* @return {Number}
+		*/
 	compareVersion(v1, v2) {
 		v1 = v1.split('.')
 		v2 = v2.split('.')

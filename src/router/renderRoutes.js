@@ -1,12 +1,7 @@
 import React from 'react'
 import { Route, Redirect, Switch } from 'react-router-dom'
-// import { connect } from 'react-redux'
 
-// @connect(state => ({
-// 	isLogin: state.isLogin
-// }))
-
-const renderRoutes = (routes, authed, authPath = '/login', extraProps = {}, switchProps = {}) =>
+const renderRoutes = (routes, authPath = '/login', extraProps = {}, switchProps = {}) =>
 routes ? (
 	<Switch {...switchProps}>
 		{
@@ -17,7 +12,7 @@ routes ? (
 					exact={route.exact}
 					strict={route.strict}
 					render={props => {
-						if (!route.requiresAuth || authed || route.path === authPath) {
+						if (!route.requiresAuth || localStorage.getItem('token') || route.path === authPath) {
 							return <route.component {...props} {...extraProps} route={route} />
 						}
 						return <Redirect to={{ pathname: authPath, state: { from: props.location } }} />
@@ -26,11 +21,5 @@ routes ? (
 		}
 	</Switch>
 ) : null
-
-// const renderRoutesConnect = connect(
-// 	state => ({
-// 		authed: state.authed
-// 	})
-// )(renderRoutes)
 
 export default renderRoutes;

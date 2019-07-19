@@ -1,8 +1,8 @@
 Arguments: 
-  F:\Node.js\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add --dev redux-logger redux-thunk redux-devtools-extension
+  F:\Node.js\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add @babel/plugin-proposal-decorators
 
 PATH: 
-  %SytemRoot%\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;F:\工作软件\Ruby23-x64\bin;E:\;BW\work\PHP\php5.6.36;C:\Windows\System32;C:\Users\Administrator\AppData\Roaming\npm;F:\Node.js;E:\IBW\work\PHP\mysql5.7.22\bin;F:\Program Files\Microsoft VS Code\bin;f:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;f:\Program Files\Microsoft SQL Server\100\Tools\Binn\;f:\Program Files\Microsoft SQL Server\100\DTS\Binn\;f:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies\;f:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;D:\Program Files\TortoiseSVN\bin;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\Yarn\bin\;F:\Node.js\;F:\Program Files\Git\cmd;C:\Users\Administrator\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\Administrator\AppData\Local\Programs\Python\Python36\;E:\IBW\work\PHP\php5.6.36;F:Node.js\node_global;F:\Program Files\Microsoft VS Code\bin;F:\Users\Administrator\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Administrator\AppData\Local\Yarn\bin;C:\Users\Administrator\AppData\Roaming\npm
+  F:\Program Files (x86)\NetSarang\Xshell 6\;%SytemRoot%\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;F:\工作软件\Ruby23-x64\bin;E:\;BW\work\PHP\php5.6.36;C:\Windows\System32;C:\Users\Administrator\AppData\Roaming\npm;F:\Node.js;E:\IBW\work\PHP\mysql5.7.22\bin;F:\Program Files\Microsoft VS Code\bin;f:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;f:\Program Files\Microsoft SQL Server\100\Tools\Binn\;f:\Program Files\Microsoft SQL Server\100\DTS\Binn\;f:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies\;f:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;D:\Program Files\TortoiseSVN\bin;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\Yarn\bin\;F:\Node.js\;F:\Program Files\Git\cmd;E:\IBW\work\PHP\php5.6.36;F:Node.js\node_global;F:\Program Files\Microsoft VS Code\bin;F:\Users\Administrator\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Administrator\AppData\Local\Yarn\bin;C:\Users\Administrator\AppData\Roaming\npm
 
 Yarn version: 
   1.10.1
@@ -64,6 +64,9 @@ npm manifest:
       "node-sass": "^4.12.0",
       "optimize-css-assets-webpack-plugin": "^5.0.3",
       "postcss-loader": "^3.0.0",
+      "redux-devtools-extension": "^2.13.8",
+      "redux-logger": "^3.0.6",
+      "redux-thunk": "^2.3.0",
       "sass-loader": "^7.1.0",
       "style-loader": "^0.23.1",
       "url-loader": "^2.0.1",
