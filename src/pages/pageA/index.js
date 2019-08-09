@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 
-import './index.scss'
+import './index.css'
 
 class PageA extends Component {
 

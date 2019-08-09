@@ -9,7 +9,7 @@ module.exports = {
 		filename: 'js/[name].bundle.js',
 		chunkFilename: 'js/[name].chunk.js',
 		path: path.resolve(__dirname, './dist'),
-		publicPath: '/',
+		publicPath: '',
 	},
 	resolve: {
 		extensions: ['.js', '.jsx', '.scss', '.css'], // 当通过import login from './login/index'形式引入文件时，会先去寻找.js为后缀当文件，再去寻找.jsx为后缀的文件

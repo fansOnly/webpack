@@ -2,14 +2,14 @@ const merge = require('webpack-merge')
 const webpack = require('webpack')
 const config = require('./webpack.config.js')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default
 const WorkboxPlugin = require('workbox-webpack-plugin')
 
 module.exports = merge(config, {
 	mode: 'production',
 	output: {
-		filename: "'js/[name].[contenthash:8].js'",
+		filename: 'js/[name].[contenthash:8].js',
 		chunkFilename: 'js/[name].[chunkhash:8].chunk.js',
 		pathinfo: false,
 	},
@@ -28,7 +28,7 @@ module.exports = merge(config, {
 							importLoaders: 2
 						}
 					},
-					'sass-loader',
+					// 'sass-loader',
 					'postcss-loader',
 				]
 			},

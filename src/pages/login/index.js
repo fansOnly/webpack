@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
+import './index.css'
+
 import { loginApi } from '@/service/user'
 
 class Login extends Component {
@@ -38,7 +40,7 @@ class Login extends Component {
 		const { username, password } = this.state;
 		return (
 			<Router>
-				<h3 className=''>this is a login page.</h3>
+				<h3 className='ss'>this is a login page.</h3>
 				<form onSubmit={this.handleSubmit.bind(this)}>
 					<div>
 						<div className='label'>用户名</div>
